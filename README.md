@@ -1,6 +1,6 @@
 # Documento de instrucciones y requisitos
 ## Introducción
-Este programa calcula la puntuación de las tarjetas de puntuación de los bolos. Hay que pasar este codigo de python a java 21. Este proyecto se va a desarrollar con TDD con [todos estos casos test](/test/test_score_card.py) escribiendo el codigo de forma incremental para que los vaya pasando uno a uno.
+Este programa calcula la puntuación de las tarjetas de puntuación de los bolos. La implementación principal está migrada a Java 25. El código Python original se conserva en [python/](python/) y los casos de comportamiento se han trasladado a JUnit 5.
 
 ## Requisitos
 ### Requisito 1
@@ -13,7 +13,7 @@ Este programa calcula la puntuación de las tarjetas de puntuación de los bolos
 2.La puntuación total debe de ser un INTEGER.
 
 ### Requisito 2
-El código debe pasar todos estos casos test [casos test](/test/test_score_card.py)
+El código debe pasar todos los casos de [ScoreCardTest](src/test/java/score_card/ScoreCardTest.java)
 
 ### Requisito 3
 El código TIENE QUE respetar los principios SOLID.
@@ -28,13 +28,23 @@ Los casos test TIENEN QUE usar JUNIT5
 Respetar los nombres del dominio.
 
 ### Requisito 7
-Mantener el código python en un directorio aparte.
+Mantener el código Python en [python/](python/).
 
 ### Requisito 8
 No utilizar herencia.
 
 ## Componentes
-El programa consta de una clase principal score_card y un tipo enumerado pins. No se debe utilizar herencia. El archivo main debe ser score_card
+El programa consta de una clase principal `ScoreCard` y un tipo enumerado `Pins`, en el paquete `score_card`. No se utiliza herencia. La clase principal de dominio es `ScoreCard`.
+
+## Ejecución
+
+Se necesita un JDK 25. Las pruebas se ejecutan con:
+
+```text
+gradlew.bat test
+```
+
+La configuración de Gradle usa el toolchain de Java 25 y JUnit 5.
 
 ## Control de versiones
 Se debe utilizar la estructura de ramas de gitflow, haciendo commits cada vez que se pase un caso test respetando la convención de commits.
